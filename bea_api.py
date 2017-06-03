@@ -5,7 +5,7 @@ import numpy as np
 import requests
 import os
 import csv
-
+import pprint
 
 ## write script so you can ask questions to the bea server in an easy wasy  with url 
 ## fields with your key, and other req info
@@ -94,17 +94,21 @@ if to_do == 'michigan_GDP':
 		dummy_list.append(obj['TimePeriod'])
 		dummy_list.append(obj['UNIT_MULT'])
 		mich_GDPdict[i] = dummy_list
-			# add all of these into the dict as an entry 
+			# add all of these into the dict as an entry
+			
+print('Data retrived:\n')
+pprint.pprint(js, jsAA)
+
 	
 		
 
 
 ### to be able to interact with the output of a script after its called append the python with -i i.e:
 	# python -i bea_api.py
-with open("mich_GDP.csv", "w", newline='') as fi_obj:
-		writer = csv.writer(fi_obj, dialect='excel')
-		for num, info in mich_GDPdict.items():
-			writer.writerow(info)
+# with open("mich_GDP.csv", "w", newline='') as fi_obj:
+		# writer = csv.writer(fi_obj, dialect='excel')
+		# for num, info in mich_GDPdict.items():
+			# writer.writerow(info)
 	# second argument has characters decribing how the file will be used
 		# 'r' when only used to read
 		# 'w' for only writing
